@@ -1,0 +1,54 @@
+ind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+  namespace: default
+  uid: cc740ed0-731b-42da-a190-87532c97cdd6
+  resourceVersion: '6992'
+  creationTimestamp: '2021-08-18T12:00:49Z'
+  labels:
+    app: nginx
+  managedFields:
+    - manager: kubectl-expose
+      operation: Update
+      apiVersion: v1
+      time: '2021-08-18T12:00:49Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:externalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":80,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:app': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8888
+      nodePort: 30721
+  selector:
+    app: nginx
+  clusterIP: 10.110.99.149
+  clusterIPs:
+    - 10.110.99.149
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+status:
+  loadBalancer: {}
